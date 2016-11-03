@@ -1,0 +1,35 @@
+﻿<ui:DialogWindow x:Class="GitlabBuilds.XamlDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:GitlabBuilds"
+             xmlns:ui="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.14.0"
+                 xmlns:vsfx="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.14.0"
+             mc:Ignorable="d"
+             WindowStartupLocation="CenterScreen"
+             Background="{DynamicResource {x:Static vsfx:VsBrushes.ToolWindowBackgroundKey}}"
+             Width="400" Height="300" Title="Connect to GitLab">
+
+    <Control.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources.xaml"/>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Control.Resources>
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBox Text="{Binding Username}" FontSize="16" Margin="5" Grid.Column="0" Grid.Row="1"></TextBox>
+        <TextBox Text="{Binding Password}" FontSize="16" Margin="5" Grid.Column="0" Grid.Row="2"></TextBox>
+        <Button x:Name="button" Command="{Binding Path=LoginCommand2}" Content="Login" Style="{StaticResource LinkButton}" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Bottom" Width="76" Margin="148,0,148,-170"/>
+    </Grid>
+</ui:DialogWindow>
